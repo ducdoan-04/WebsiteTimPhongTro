@@ -1,0 +1,31 @@
+.container .row .col-md-offset-2.col-md-8.Editprofile {
+    /* margin: 0; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0%;
+}
+
+
+/* #Editprofile-1 {
+    top: 60px;
+    position: relative;
+}
+
+.container .row .col-md-offset-2.col-md-8 .panel .panel-body .form-horizontal .content-upload {
+    display: block;
+} */
+
+.col-sm-9.EditprofileGroup {
+    width: 70%;
+}
+
+.form-horizontal .control-label.EditprofileLabel {
+    float: left;
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: left;
+    width: 29%;
+    padding-right: 0px;
+    padding-left: 0px;
+}

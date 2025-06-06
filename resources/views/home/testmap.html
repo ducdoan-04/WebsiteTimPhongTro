@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenStreetMap with Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <style>
+        #map-canvas {
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map-canvas"></div>
+    <input id="location-text-box" type="text" placeholder="Enter location">
+    <button id="search-button">Search</button>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script>
+        var map;
+        var marker;
+        var geocoder;
+
+        function initialize() {
+            map = L.map('map-canvas').setView([16.070372, 108.214388], 12);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = [position.coords.latitude, position.coords.longitude];
+                    map.setView(pos, 17);
+                    marker = L.marker(pos, {
+                        draggable: true
+                    }).addTo(map);
+                    updateLocationInfo(marker);
+
+                    marker.on('dragend', function() {
+                        updateLocationInfo(marker);
+                    });
+                }, function() {
+                    handleNoGeolocation(true);
+                });
+            } else {
+                handleNoGeolocation(false);
+            }
+
+            function handleNoGeolocation(errorFlag) {
+                var content = errorFlag ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.';
+                var options = {
+                    map: map,
+                    zoom: 19,
+                    position: new L.LatLng(16.070372, 108.214388),
+                    content: content
+                };
+
+                map.setView(options.position);
+                marker = L.marker(options.position, {
+                    draggable: true,
+                    icon: L.icon({
+                        iconUrl: 'images/gps.png',
+                        iconSize: [32, 32]
+                    })
+                }).addTo(map);
+
+                marker.on('dragend', function() {
+                    updateLocationInfo(marker);
+                });
+            }
+
+            geocoder = L.Control.Geocoder.nominatim();
+
+            $('#search-button').on('click', function() {
+                var searchText = $('#location-text-box').val().trim();
+                if (searchText !== '') {
+                    geocoder.geocode(searchText, function(results) {
+                        if (results && results.length > 0) {
+                            var latlng = results[0].center;
+                            map.setView(latlng, 17);
+                            marker.setLatLng(latlng);
+                            updateLocationInfo(marker);
+                        }
+                    });
+                }
+            });
+        }
+
+        function updateLocationInfo(marker) {
+            var latlng = marker.getLatLng();
+            geocoder.reverse(latlng, map.options.crs.scale(map.getZoom()), function(results) {
+                if (results && results.length > 0) {
+                    var address = results[0].name;
+                    $('#location-text-box').val(address);
+                }
+            });
+        }
+
+        initialize();
+    </script>
+</body>
+
+</html>

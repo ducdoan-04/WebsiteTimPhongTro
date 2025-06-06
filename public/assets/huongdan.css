@@ -1,0 +1,250 @@
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        -webkit-text-size-adjust: none;
+        position: relative;
+        line-height: 1.4;
+        color: #323232;
+        font-size: 14px;
+        font-family: "Be Vietnam Pro", sans-serif;
+        font-weight: 500;
+    }
+    
+    #main-body {
+        min-height: 400px;
+        z-index: 1;
+    }
+    
+    #main-body #main-content {
+        width: 100%;
+        margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .wrapper,
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 10px;
+        position: relative;
+    }
+    
+    #main-body #main-content #full {
+        width: 100%;
+    }
+    
+    .module {
+        border: 0;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    .news.news-detail.huong-dan .modulecontent .nav-tabs-custom {
+        display: flex;
+    }
+    
+    .news.news-detail.huong-dan .modulecontent .nav-tabs-custom .nav-tabs {
+        margin-bottom: 0;
+        border-right: 1px solid #e1e1e1;
+        display: flex;
+        flex-direction: column;
+        margin: 30px;
+        padding-right: 30px;
+    }
+    
+    .nav-tabs {
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .nav {
+        margin-bottom: 20px;
+        margin-left: 0;
+        list-style: none;
+    }
+    
+    ul,
+    ol {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .nav-tabs:before,
+    .nav-pills:before,
+    .nav-tabs:after,
+    .nav-pills:after {
+        display: table;
+        line-height: 0;
+        content: "";
+    }
+    
+    .nav-tabs>li {
+        margin-bottom: -1px;
+    }
+    
+    .nav-tabs>li,
+    .nav-pills>li {
+        float: left;
+    }
+    
+    .news.news-detail.huong-dan .modulecontent .nav-tabs-custom .nav-tabs>li:hover a,
+    .news.news-detail.huong-dan .modulecontent .nav-tabs-custom .nav-tabs>li.active a {
+        background-color: #eee;
+        color: #0045A8;
+    }
+    
+    .news.news-detail.huong-dan .modulecontent .nav-tabs-custom .nav-tabs>li>a {
+        width: 280px;
+        display: block;
+        padding: 12px;
+        border-radius: 0;
+        color: #323232;
+        border: 0;
+        font-size: 14px;
+        text-align: left;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+    
+    .nav-tabs>.active>a,
+    .nav-tabs>.active>a:hover {
+        cursor: default;
+    }
+    
+    .nav-tabs>li>a {
+        line-height: 20px;
+        text-decoration: none;
+        font-family: 'Segoe UI';
+        font-weight: bold;
+    }
+    
+    .nav-tabs:before,
+    .nav-pills:before,
+    .nav-tabs:after,
+    .nav-pills:after {
+        display: table;
+        line-height: 0;
+        content: "";
+    }
+    /* #tab_7 {
+    display: block;
+} */
+    
+    .news.news-detail.huong-dan .modulecontent .nav-tabs-custom .tab-content {
+        width: auto;
+        /* border-radius: 0 0 5px 5px; */
+        padding-top: 20px;
+    }
+    /* .tab-content {
+    overflow: auto;
+} */
+    
+    .tab-content>.active,
+    .pill-content>.active {
+        display: block;
+    }
+    
+    .tab-content>.tab-pane,
+    .pill-content>.pill-pane {
+        display: none;
+    }
+    
+    .tab-content .tab-pane.active {
+        display: block;
+    }
+    
+    .news.news-detail.huong-dan .modulecontent .nav-tabs-custom .tab-content .item .title {
+        margin: 0 0 20px;
+    }
+    
+    .news.news-detail.huong-dan .modulecontent .nav-tabs-custom .tab-content .item .title h2 {
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #0045A8;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+    }
+    
+    .news.news-detail.huong-dan .modulecontent .nav-tabs-custom .tab-content .item .description,
+    .news.news-detail.huong-dan .modulecontent .nav-tabs-custom .tab-content .item .content {
+        line-height: 1.6;
+    }
+    
+    .news.news-detail .item .content {
+        margin: 20px 0 0;
+    }
+    
+    .news .content {
+        text-align: left;
+    }
+    
+    .news.news-detail .item .content img {
+        max-width: 100%;
+        border: 1px solid #bfbfbf;
+        margin: 15px 0;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        width: auto\9;
+    }
+    
+    img {
+        overflow-clip-margin: content-box;
+        overflow: clip;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+    
+    strong {
+        font-weight: 700;
+    }
+    
+    li {
+        text-align: -webkit-match-parent;
+    }
+    
+    a,
+    a:link,
+    a:visited {
+        color: #0045A8;
+        text-decoration: none;
+    }
+    /* REPONSIVE */
+    
+    @media only screen and (max-width: 900px) {
+        .news.news-detail.huong-dan .modulecontent .nav-tabs-custom .nav-tabs {
+            display: none;
+        }
+        .news.news-detail.huong-dan .modulecontent .nav-tabs-custom .tab-content {
+            padding: 20px;
+        }
+        .box.box-header.box-header-content {
+            padding-right: 30px;
+        }
+    }
+    
+    @media only screen and (max-width: 550px) {
+        .news.news-detail.huong-dan .modulecontent .nav-tabs-custom .nav-tabs {
+            display: none;
+        }
+    }
