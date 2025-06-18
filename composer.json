@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.0",
         "cviebrock/eloquent-sluggable": "^8.0",
+        "doctrine/dbal": "2.13",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -17,7 +18,8 @@
         "kartik-v/yii2-widget-fileinput": "dev-master",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^3.4"
+        "laravel/ui": "^3.4",
+        "nesbot/carbon": "2.63"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",

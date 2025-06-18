@@ -2,8 +2,6 @@
 
 use App\Http\Controller\AjaxLoginCustomer;
 use App\Http\Controllers\ImageController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -128,19 +126,5 @@ Route::group(['prefix'=>'ajax'], function () {
         Route::post('commentReview','AjaxLoginCustomer@commentReview')->name('ajax.commentReview');
         Route::get('logout','AjaxLoginCustomer@logout');
 
-});
-
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/room/{room}', [HomeController::class, 'show'])->name('room.show');
-Route::get('/search', [HomeController::class, 'search'])->name('room.search');
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
-    Route::get('/my-rooms', [HomeController::class, 'myRooms'])->name('my.rooms');
-    Route::get('/room/create', [HomeController::class, 'create'])->name('room.create');
-    Route::post('/room', [HomeController::class, 'store'])->name('room.store');
-    Route::get('/room/{room}/edit', [HomeController::class, 'edit'])->name('room.edit');
-    Route::put('/room/{room}', [HomeController::class, 'update'])->name('room.update');
-    Route::delete('/room/{room}', [HomeController::class, 'destroy'])->name('room.destroy');
 });
 

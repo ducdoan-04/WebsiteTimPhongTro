@@ -2,35 +2,22 @@
 
 namespace Database\Seeders;
 
-use App\Models\Room;
-use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
-        // Create admin user
-        User::factory()->create([
-            'name' => 'Admin',
-            'email' => 'admin@example.com',
-            'password' => bcrypt('password'),
-            'role' => 'admin'
+        DB::table('districts')->insert([
+            ['name' => 'Hải Châu', 'slug' => 'hai-chau'],
+            ['name' => 'Thanh Khê', 'slug' => 'thanh-khe'],
+            ['name' => 'Sơn Trà', 'slug' => 'son-tra'],
+            ['name' => 'Ngũ Hành Sơn', 'slug' => 'ngu-hanh-son'],
+            ['name' => 'Liên Chiểu', 'slug' => 'lien-chieu'],
+            ['name' => 'Cẩm Lệ', 'slug' => 'cam-le'],
         ]);
 
-        // Create landlord users
-        User::factory()->count(5)->create([
-            'role' => 'landlord'
-        ])->each(function ($user) {
-            // Create rooms for each landlord
-            Room::factory()->count(3)->create([
-                'user_id' => $user->id
-            ]);
-        });
-
-        // Create regular users
-        User::factory()->count(10)->create([
-            'role' => 'user'
-        ]);
+        $this->call(CategoriesSeeder::class);
     }
-} 
+}
